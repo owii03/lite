@@ -42,7 +42,9 @@ namespace Time {
 	 * @returns Day of week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
 	 */
 	export function weekday(date: Date, timezone: string = default_timezone): number {
-		return DateTime.fromJSDate(date).setZone(timezone).weekday % 7;
+		// Fallback to local timezone if default_timezone is undefined or invalid
+		const validTimezone = timezone || DateTime.local().zoneName;
+		return DateTime.fromJSDate(date).setZone(validTimezone).weekday % 7;
 	}
 
 	/**
@@ -118,6 +120,14 @@ namespace Time {
 	 * @returns New Date object with added days
 	 */
 	export function addDays(date: Date, days: number): Date {
+		// Validate inputs to prevent NaN values
+		if (!date || !(date instanceof Date) || isNaN(date.getTime())) {
+			throw new Error('Invalid date provided to addDays');
+		}
+		if (typeof days !== 'number' || isNaN(days)) {
+			throw new Error('Invalid days value provided to addDays');
+		}
+		
 		return DateTime.fromJSDate(date).plus({ days }).toJSDate();
 	}
 
@@ -129,6 +139,14 @@ namespace Time {
 	 * @returns New Date object with subtracted days
 	 */
 	export function subtractDays(date: Date, days: number): Date {
+		// Validate inputs to prevent NaN values
+		if (!date || !(date instanceof Date) || isNaN(date.getTime())) {
+			throw new Error('Invalid date provided to subtractDays');
+		}
+		if (typeof days !== 'number' || isNaN(days)) {
+			throw new Error('Invalid days value provided to subtractDays');
+		}
+		
 		return DateTime.fromJSDate(date).minus({ days }).toJSDate();
 	}
 
