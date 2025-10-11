@@ -124,10 +124,10 @@
 			<span>{@render home()}</span>
 			<p>{t("navigation.home")}</p>
 		</a>
-		<a href={getRelativeLocaleUrl(locale, "/note")} class:location={route.startsWith(getRelativeLocaleUrl(locale, "/note"))}>
+		<!-- <a href={getRelativeLocaleUrl(locale, "/note")} class:location={route.startsWith(getRelativeLocaleUrl(locale, "/note"))}>
 			<span>{@render note()}</span>
 			<p>{t("navigation.note")}</p>
-		</a>
+		</a> -->
 		<a href={getRelativeLocaleUrl(locale, "/jotting")} class:location={route.startsWith(getRelativeLocaleUrl(locale, "/jotting"))}>
 			<span>{@render jotting()}</span>
 			<p>{t("navigation.jotting")}</p>
@@ -147,8 +147,8 @@
 			{#snippet trigger()}{@render globe()}{/snippet}
 			<div data-no-swup class="contents">
 				<a href={getRelativeLocaleUrl("en", path)} aria-label="English">English</a>
-				<a href={getRelativeLocaleUrl("zh-cn", path)} aria-label="简体中文">简体中文</a>
-				<a href={getRelativeLocaleUrl("ja", path)} aria-label="日本語">日本語</a>
+				<!-- <a href={getRelativeLocaleUrl("zh-cn", path)} aria-label="简体中文">简体中文</a>
+				<a href={getRelativeLocaleUrl("ja", path)} aria-label="日本語">日本語</a> -->
 			</div>
 		</Menu>
 	</footer>
