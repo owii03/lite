@@ -132,10 +132,10 @@
 			<span>{@render jotting()}</span>
 			<p>{t("navigation.jotting")}</p>
 		</a>
-		<a href={getRelativeLocaleUrl(locale, "/about")} class:location={route.startsWith(getRelativeLocaleUrl(locale, "/about"))}>
+		<!-- <a href={getRelativeLocaleUrl(locale, "/about")} class:location={route.startsWith(getRelativeLocaleUrl(locale, "/about"))}>
 			<span>{@render about()}</span>
 			<p>{t("navigation.about")}</p>
-		</a>
+		</a> -->
 	</header>
 
 	<footer class="flex flex-col gap-2 sm:gap-5 sm:(flex-row gap-7)">
