@@ -1,0 +1,12 @@
+# Tell Netlify the command to build and the directory to deploy
+[build]
+  command = "npm run build"  # Or 'astro build'
+  publish = "dist"
+
+# This redirect rule is for handling client-side routing.
+# It tells Netlify to serve index.html for any path requested (/*)
+# with a 200 status, allowing your client-side router to take over.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
